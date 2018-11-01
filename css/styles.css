@@ -38,6 +38,12 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  /*
+  width: 100%; was added by me
+  display: flex; was added by me
+  flex-wrap: wrap; was added by me*/
+  
+  
 }
 #footer {
   background-color: #444;
@@ -109,6 +115,11 @@ nav h1 a {
   height: 50px;
   background-color: #3397DB;
   align-items: center;
+
+
+  display: flex; /*was added by me*/
+  flex-wrap: wrap; /*was added by me*/
+  
 }
 .filter-options h2 {
   color: white;
@@ -272,4 +283,40 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+@media screen and (max-width:414px){
+  #restaurants-list li{
+    width:100%;
+  }
+  p{
+    display:none;
+  }
+  .filter-options h2{
+    display:none;
+  }
+
+}
+
+@media screen and (max-width:462px){
+
+  li p:last-of-type{
+    display: none;
+  }
+  /* ul #restaurants-list{
+    position: relative;
+  } */
+}
+@media screen and (max-width:600px){
+  .filter-options #neighborhoods-select, .filter-options #cuisines-select{
+    max-width: 40%;
+    display: inline-flex;
+  }
+  .filter-options {
+    display: block;
+    height: 80px;
+  }
+  .filter-options h2{
+    font-size: 15px;
+  }
 }
