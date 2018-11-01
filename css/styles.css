@@ -295,7 +295,10 @@ nav h1 a {
   .filter-options h2{
     display:none;
   }
-
+  img.restaurant-img{
+    width:80%;
+    height: 80%;
+  }
 }
 
 @media screen and (max-width:462px){
@@ -319,4 +322,37 @@ nav h1 a {
   .filter-options h2{
     font-size: 15px;
   }
+}
+
+@media screen and (min-width: 601px) and (max-width:740px) {
+  #restaurants-list li{
+    /* width: 50%; */
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 32%;
+ 
+  }
+
+}
+@media screen and (min-width: 741px) and (max-width:930px) {
+  #restaurants-list li{
+    /* width: 50%; */
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+ 
+  }
+}
+@media screen and (min-width:931px){
+  #restaurants-list li{
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 15%;
+    height: 15%;
+  }
+
 }
