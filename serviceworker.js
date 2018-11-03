@@ -1,4 +1,4 @@
-const resturantCache = 'v4'; //name of cache for this project
+const resturantCache = 'v5'; //name of cache for this project
 
 var cacheLinks = [//list all files and images want to cache(save on browser)
     '/',
@@ -20,7 +20,7 @@ var cacheLinks = [//list all files and images want to cache(save on browser)
     '/img/9.jpg',
     '/img/10.jpg'
 ];
-
+//CodingEvelynMiami
 // fires when browser set up a new service worker for the first time.
 self.addEventListener('install', function(cacheEvent){
     cacheEvent.waitUntil(//if and when the promises resolves, the browser knows the install is complete.
@@ -51,7 +51,7 @@ self.addEventListener('activate', function(cacheEvent){
             return Promise.all(
                 allResturantCaches.map(function(eachRestcache){
                     if (eachRestcache!= resturantCache){
-                        //check it each cache item is the same/equal to the value of the cache variable given to resturantCache
+                        //check if each cache item is the same/equal to the value of the cache variable given to resturantCache
                         console.log('Service worker deleting old cache');
                         return caches.delete(cache);
                     }
