@@ -1,4 +1,4 @@
-const resturantCache = 'v5'; //name of cache for this project
+const resturantCache = 'v6'; //name of cache for this project
 
 var cacheLinks = [//list all files and images want to cache(save on browser)
     '/',
@@ -18,7 +18,8 @@ var cacheLinks = [//list all files and images want to cache(save on browser)
     '/img/7.jpg',
     '/img/8.jpg',
     '/img/9.jpg',
-    '/img/10.jpg'
+    '/img/10.jpg',
+    '/data/restaurants.json'
 ];
 //CodingEvelynMiami
 // fires when browser set up a new service worker for the first time.
