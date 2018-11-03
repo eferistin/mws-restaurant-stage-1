@@ -1,4 +1,4 @@
-const resturantCache = 'v7'; //name of cache for this project
+const resturantCache = 'v9'; //name of cache for this project
 
 var cacheLinks = [//list all files and images want to cache(save on browser)
     '/',
@@ -62,11 +62,25 @@ self.addEventListener('activate', function(cacheEvent){
     );
 });
 
+//Fetch event enables us to show cached files if we're offline
 self.addEventListener('fetch', function(cacheEvent){
     console.log("Service worker fetching.");
+    
+    //cacheEvent.respondWith tells the browser that we’re going to handle this request
+    //takes a response object or a promise that resolves with a response.
     cacheEvent.respondWith(
+
+        //Fetch let’s you make network requests and let’s you read the response.
         fetch(cacheEvent.request).catch(function(){
-            catches.match(cacheEvent.request)
+            //tries to find a match in any cache, caches.match used to get out the cache
+            //function that will load the file with the .match method
+            caches.match(cacheEvent.request)
         })
     )
 })
+
+/*
+Note: to self
+
+The service worker is located at the root file path is because it can only control files that are in the same folder as itself, or that folders sub-folders. So if you put it in the /js folder it won't be able to cache anything that isn't in that folder.
+*/
