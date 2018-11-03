@@ -61,3 +61,11 @@ self.addEventListener('activate', function(cacheEvent){
     );
 });
 
+self.addEventListener('fetch', function(cacheEvent){
+    console.log("Service worker fetching.");
+    cacheEvent.respondWith(
+        fetch(cacheEvent.request).catch(function(){
+            catches.match(cacheEvent.request)
+        })
+    )
+})
