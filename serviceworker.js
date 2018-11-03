@@ -1,4 +1,4 @@
-const resturantCache = 'v6'; //name of cache for this project
+const resturantCache = 'v7'; //name of cache for this project
 
 var cacheLinks = [//list all files and images want to cache(save on browser)
     '/',
@@ -21,7 +21,7 @@ var cacheLinks = [//list all files and images want to cache(save on browser)
     '/img/10.jpg',
     '/data/restaurants.json'
 ];
-//CodingEvelynMiami
+
 // fires when browser set up a new service worker for the first time.
 self.addEventListener('install', function(cacheEvent){
     cacheEvent.waitUntil(//if and when the promises resolves, the browser knows the install is complete.
@@ -31,7 +31,7 @@ self.addEventListener('install', function(cacheEvent){
             //if there was a cache open with that name before, it creates one and returns it
             console.log(`Serviceworker caches files (saves them): ${cacheObject}`);
 
-            return cache.addAll(cacheLinks); //takes an array of urls, fetched them, and puts the request-response pairs into cache.
+            return cache.addAll(cacheLinks); //takes an array of urls, fetched them, and puts the request-response pairs into cache(storage).
 
         }).
         catch(function(cacheError){
@@ -46,15 +46,15 @@ self.addEventListener('activate', function(cacheEvent){
     cacheEvent.waitUntil(// until promise is fullfill and gets rid of service worker
 
         //using caches.keys- get the names of all the current caches 
-        //it sort of creates an object container of all caches that been created and is sorted for the app on the browser
+        //it sort of creates an object container of all caches that been created and is stored for the app on the browser
         caches.keys().then(function(allResturantCaches){
-                //works similar to  a foreach, allResturantCaches is like a basket AND eachRestcache is items in the basket
+                //works similar to  a foreach, allResturantCaches is like a basket AND eachRestcache is an item in the basket
             return Promise.all(
                 allResturantCaches.map(function(eachRestcache){
                     if (eachRestcache!= resturantCache){
                         //check if each cache item is the same/equal to the value of the cache variable given to resturantCache
                         console.log('Service worker deleting old cache');
-                        return caches.delete(cache);
+                        return caches.delete(eachRestcache);
                     }
                 })
             )
