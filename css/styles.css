@@ -332,17 +332,49 @@ nav h1 a {
 
 }
 
-@media screen and (min-width:360px) and (max-width:459px) {
+@media screen and (min-width:360px) and (max-width:424px) {
   #reviews-list li{
-    width:80px;
-    height:100px;
+    width:85px;
+    height:90px;
+    overflow-x: hidden; 
   }
-
+  #reviews-list li p{
+    overflow: hidden;
+    width:70px;
+  }
+  #reviews-list li p:nth-child(2),p:last-child{
+    display: none;
+  }
+  #restaurant-container td:nth-child(even){
+    overflow-x: scroll;
+    width:70px;
+  }
+}
+@media screen and (min-width:425px) and (max-width:459px) {
+  #reviews-list li{
+    width:85px;
+    height:180px;
+    overflow-x: hidden; 
+  }
+  #reviews-list li p{
+    overflow-x: scroll;
+  }
+  #reviews-list li p:last-child{
+    display: none;
+  }
+  #restaurant-container td:nth-child(even){
+    overflow-x: scroll;
+    width:85px;
+  }
 }
 @media screen and (min-width:460px) and (max-width:499px) {
   #reviews-list li{
-    width:120px;
-    height:200px;
+   width:120px;
+    height:200px; 
+  }
+  #restaurant-container td:nth-child(even){
+    overflow-x: scroll;
+    width:100px;
   }
 }
 @media screen and (min-width:500px) and (max-width:579px) {
